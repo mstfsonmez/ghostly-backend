@@ -11,9 +11,9 @@ logger = logging.getLogger(__name__)
 # Create AsyncServer with ASGI async_mode
 sio = socketio.AsyncServer(
     async_mode='asgi',
-    # Disable CORS for Socket.IO (let FastAPI handle it)
-    cors_allowed_origins=[],
-    cors_credentials=False,
+    # Enable CORS for Socket.IO
+    cors_allowed_origins="*",
+    cors_credentials=True,
     logger=True,
     engineio_logger=True,  # Enable to see Engine.IO debug logs
     ping_timeout=60,
